@@ -31,4 +31,4 @@ if __name__ == "__main__":
     unittest.main()
     test = PrimesTest()
 
-    test.main_test()
+    test.test_primes()
