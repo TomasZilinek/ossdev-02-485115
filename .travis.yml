@@ -5,8 +5,9 @@ python:
   - 3.7
 before_install:
   - sudo apt-get update
-  - sudo apt-get install pycodestyle
+  - sudo apt install pep8
 install:
   - pip install unittest2
+  - pip install pep8
 before_script: cd root/tests
 script: sh test_all.sh
