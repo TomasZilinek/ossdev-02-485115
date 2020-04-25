@@ -1,10 +1,17 @@
 language: python
 python:
+  - 3.5
   - 3.6
+  - 3.7
 before_install:
+  - wget -q "http://deb.playonlinux.com/public.gpg" -O - | sudo apt-key add -
+  - sudo wget http://deb.playonlinux.com/playonlinux_trusty.list -O /etc/apt/sources.list.d/playonlinux.list
+  - sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/lutris.list"
+  - wget -nv https://download.opensuse.org/repositories/home:strycore/xUbuntu_16.04/Release.key -O Release.key
+  - sudo apt-key add - < Release.key
   - sudo apt-get update
   - sudo apt-get install pycodestyle
 install:
   - pip install unittest2
-before_script: cd src/tests
+before_script: cd root/tests
 script: sh test_all.sh
